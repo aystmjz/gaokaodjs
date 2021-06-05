@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+
+<html>
+	<head>
+		
+		<meta charset="utf-8">
+		<script src="./files/daojishi.js"></script>
+		<link rel="stylesheet" href ="./files/yangshi.css">
+	</head>
+	<body>
+		
+		<script type="text/javascript">
+		var a=Math.floor(Math.random()*(31+1-1)+1);
+		document.body.style.backgroundImage = "URL(photos/"+a+".jpg)";
+			var curIndex = Math.floor(Math.random()*(31+1-1)+1);
+			var timeInterval = 60*5*1000;//毫秒
+			var arr = new Array();//图片数组
+			arr[0] = "photos/1.jpg";
+			arr[1] = "photos/2.jpg";
+			arr[2] = "photos/3.jpg";
+			arr[3] = "photos/4.jpg";
+			arr[4] = "photos/5.jpg";
+			arr[5] = "photos/6.jpg"
+			arr[6] = "photos/7.jpg";
+			arr[7] = "photos/8.jpg";
+			arr[8] = "photos/9.jpg"
+			arr[9] = "photos/10.jpg";
+			arr[10] = "photos/11.jpg";
+			arr[11] = "photos/12.jpg"
+			arr[12] = "photos/13.jpg";
+			arr[13] = "photos/14.jpg";
+			arr[14] = "photos/15.jpg";
+			arr[15] = "photos/16.jpg";
+			arr[16] = "photos/17.jpg";
+			arr[17] = "photos/18.jpg";
+			arr[18] = "photos/19.jpg";
+			arr[19] = "photos/20.jpg";
+			arr[20] = "photos/21.jpg";
+			arr[21] = "photos/22.jpg";
+			arr[22] = "photos/23.jpg";
+			arr[23] = "photos/24.jpg";
+			arr[24] = "photos/25.jpg";
+			arr[25] = "photos/26.jpg";
+			arr[26] = "photos/27.jpg";
+			arr[27] = "photos/28.jpg";
+			arr[28] = "photos/29.jpg";
+			arr[29] = "photos/30.jpg";
+			arr[30] = "photos/31.jpg";
+			arr[31] = "photos/32.jpg";
+
+			setInterval(changeImg, timeInterval);
+			function changeImg() {
+			if (curIndex == arr.length - 1) {
+			curIndex = 0;
+			} else {
+			curIndex += 1;
+			}//设置body的背景图片
+			document.body.style.backgroundImage = "URL("+arr[curIndex]+")"; //显示对应的图片
+			}
+		</script>
+	<table border="0" width="1900" height="1060">
+			<tr height="300"><!--距离上部-->
+				<th rowspan="4" width="150"> <!--距离左端-->
+				</th>
+				<th width="800" style="text-align:left;vertical-align:bottom;"><!--距离右端-->
+					<span class="yincang">__________________________________</span><span class="xianzaishi">现在是</span><br>
+					<span class="yincang">__________________________________</span><span id="dangqiannian" class="xianzai"></span><span class="xianzainry">年</span><span id="dangqianyue" class="xianzai"></span><span class="xianzainry">月</span><span id="dangqianri" class="xianzai"></span><span class="xianzainry">日</span><span class="yincang">____</span>
+					<span id="dangqianshi" class="xianzai"></span><span class="xianzainry">:</span><span id="dangqianfen" class="xianzai"></span><span class="xianzainry">:</span><span id="dangqianmiao" class="xianzai"></span>
+				</th>
+				<th width = "900"><!--距离右端-->
+				</th>
+				<th>
+				</th>
+			</tr>
+			<tr height="8"><!--间隔-->
+				<th colspan="3">
+				</th>
+			</tr>
+			<tr height="100"><!--下端-->
+				<th colspan="3" style="text-align:left;vertical-align:top">
+					<span class="juli">距离</span><span class="yincang">__</span><span id="gaokaonian" class="gaokaonian"></span><span class="yincang">__</span><span class="juli">年高考还有<span class="yincang">__</span></span><span class="juli_">距离</span><span class="yincang">__</span><span id="exam_name" class="exam_name"></span><span id="exam_date" class="exam_date"></span><span class="yincang">__</span><span class="juli_">还有</span><br>
+					<span id="shengyutian" class="shengyudh"></span><span class="dh">D</span><span id="shengyushi" class="shengyudh"></span><span class="dh">h</span><span id="shengyufen" class="shengyumins"></span><span class="mins">min</span><span id="shengyumiao" class="shengyumins"></span><span class="mins">s</span><span class="yincang">__</span>	<span id="exam_day" class="shengyudh"></span><span class="dh_">D</span><span id="exam_hour" class="shengyudh"></span><span class="dh_">h</span><span id="exam_minutes" class="shengyumins"></span><span class="mins_">min</span><span id="exam_seconds" class="shengyumins"></span><span class="mins_">s</span>
+				</th>
+			</tr>
+			<tr height="300"><!--下端-->
+				<th colspan="3" style="text-align:left;vertical-align:top">
+					<span id="wangluo" class="wangluo"></span><span class="yincang">____________________________________________________</span>      <span id="English_line" class="yincang"></span>     <span class="English_name">维词天天练 </span>    <span id="English_name" class="English_name"></span>  <span id="English_unit" class="English_unit"></span>  
+				</th>
+			</tr>
+			<tr>
+				<th colspan="3" style="text-align:right;">
+					<span id="wangluo" class="wangluo"></span>
+					<!--<span class="youxiang">©1908牟家正 2835632114@qq.com</span>-->
+				</th>
+			</tr>
+		</table>
+
+		
+		<span id="qqq" class="xianzai"></span>
+
+
+
+
+
+
+	</body>
+</html>
+

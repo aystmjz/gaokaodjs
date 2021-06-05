@@ -1,0 +1,134 @@
+﻿body{
+	background-image:url(photos/4.jpg);
+	background-color:#000000;
+}
+
+.yincang{
+	opacity:0;/*不透明度（显示度）*/
+}
+
+.youxiang{
+	opacity:0.8;
+	color:#FFFFFF;
+	text-shadow:0px 0px 40px #FFFFFF;
+}
+
+
+.xianzaishi{
+	font-size:40px;
+	color:#00BFFF;
+	text-shadow:0px 0px 30px #000000;
+	font-family:"等线";
+}
+
+.xianzai{
+	font-size:50px;
+	font-family:MS Gothic;
+	color:#FFFFFF;
+	text-shadow:0px 0px 20px #000000;
+}
+
+.xianzainry{
+	font-size:20px;
+	color:#00BFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.juli{
+	font-size:80px;
+	font-family:"等线";
+	color:#00BFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.gaokaonian{
+	font-size:100px;
+	font-family:"Georgia";
+	color:#FFFFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.exam_name{
+	font-size:90px;
+	font-family:"Georgia";
+	color:#FFFFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.exam_date{
+	font-size:60px;
+	font-family:"Georgia";
+	color:#FFFFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+
+.dh{
+	font-size:150px;
+	font-family:"等线";
+	color:#00BFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.mins{
+	font-size:40px;
+	font-family:"等线";
+	color:#00BFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.dh_{
+	font-size:150px;
+	font-family:"等线";
+	color:#32CD32;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.mins_{
+	font-size:40px;
+	font-family:"等线";
+	color:#32CD32;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.juli_{
+	font-size:80px;
+	font-family:"等线";
+	color:#32CD32;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.shengyudh{
+	font-size:200px;
+	font-family:"楷体";
+	color:#FFFFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.shengyumins{
+	font-size:50px;
+	font-family:"楷体";
+	color:#FFFFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.wangluo{
+	font-size:50px;
+	font-family:"楷体";
+	color:#FFFFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.English_name{
+	font-size:50px;
+	font-family:"楷体";
+	color:#FFFFFF;
+	text-shadow:0px 0px 10px #000000;
+}
+
+.English_unit{
+	font-size:50px;
+	font-family:"楷体";
+	color:#FFFFFF;
+	text-shadow:0px 0px 10px #000000;
+}
