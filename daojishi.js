@@ -1,4 +1,5 @@
 setInterval(function(){daojishi()},1000);//刷新
+setInterval(function(){get()},5000);
 var internet_flag="网络已断开";
 var internet_pass_time=0;
 var fl=1;
@@ -15,6 +16,80 @@ var English_unit=0;
 var English_name="Unit";
 var English_line="__";
 var kslf=0;
+var par;
+var $ = {
+		get: function(url, js_obj, success, datatype,rt) {
+			var xhr = this.createXhr();
+			xhr.onreadystatechange = function() {
+					if (xhr.readyState == 4) {
+						var result = xhr.responseText; 
+						if (datatype == 'json') {
+							result = JSON.parse(result);
+						}
+						success(result);
+					}
+				} 
+			var str = this.params(js_obj); 
+			url = url + '?' + str; 
+			xhr.open('get', url);
+			xhr.send(null);
+	
+		},
+		
+		createXhr: function() {
+			var xmlhttp;
+			if (window.XMLHttpRequest) {
+				xmlhttp = new XMLHttpRequest();
+			} else {
+				xmlhttp = new ActiveXObject('Msxml2.XMLHTTP');
+			}
+			return xmlhttp;
+		},
+		
+		params: function(obj) {
+		
+			var str = '';
+			for (var key in obj) {
+				str += key + '=' + obj[key] + '&';
+			} 
+			str = str.slice(0, -1);
+			return str;
+		}
+	
+	}
+
+	
+function get(){
+
+
+	
+	
+	
+	
+	$.get('https://raw.githubusercontent.com/aystmjz/gaokaodjs/main/news', 
+		
+	
+		{
+			"name": 'qw',
+			"age": 122
+		}, 
+		
+		function(data) {
+			par=data;
+			
+		},
+		'text')
+	
+	document.getElementById("par").innerHTML=par;
+	
+	
+
+
+
+}
+
+
+
 function daojishi(){
 	
 	var w=word(); 
@@ -161,6 +236,7 @@ function daojishi(){
 
 
 
+
 var ctime=0;
 ctime=local_time_hour*3600+local_time_minutes*60+local_time_seconds*1;
 var cctime=0;
@@ -204,59 +280,7 @@ if(flag){
 	
 
 
-
-/*
- 
-var url="http://www.163.com/index.html?user=xie&pass=123456&age=30&sex=man&interest=看书|游戏";
-        
-function urlToObject(url) {
-	//url.split("?")[1] 也可以是
-	var arr=url.split("?").pop().split("&");
-	//分割开来 user=xie&pass=123456&age=30&sex=man&interest=看书|游戏"
-   var obj={};                           
-   //arr0 - arr4 ~~~user=xie pass=123456 age=30 sex=man interest=看书|游戏"
-   arr.forEach(function (t) {           //遍历我们的这个数组
-		var arr1=t.split("=");          //user xie......
-		if(arr1[1].indexOf("|")>-1){    //数组对象的 塞选条件"|"
-			obj[arr1[0]]=arr1[1].split("|");
-			//arr1[0] interest , arr1[1] 看书|游戏
-			console.log(obj[arr1[0]]);
-			obj[arr1[0]]=obj[arr1[0]].map(function (t2) {
-				return getNum(t2);
-			})
-		}else{
-			obj[arr1[0]]=getNum(arr1[1]);
-		}
-
-   });
-	console.log(obj);
-}
-
-function getNum(str) {  //判断如果值为数值，将字符串转化为数值
-	if(isNaN(Number(str))) return str;
-	return Number(str);
-}
-
-urlToObject(url);
-
-
-
-
-*/
-
-
-
-
-$( "button" ).click( function (){
-    $( "div" ).load( 'https://github.com/aystmjz/gaokaodjs/blob/main/news #container' );
-});
-
-
-
-
-
-
-	document.getElementById("div").innerHTML=div;
+    //document.getElementById("par").innerHTML=par;
 	document.getElementById("shengyutian").innerHTML=tian;
 	document.getElementById("shengyushi").innerHTML=shi;
 	document.getElementById("shengyufen").innerHTML=fen;
