@@ -1,13 +1,17 @@
-setInterval(function(){get()},5000);
-setInterval(function(){leftTimer_main(exam_year_set,6,7,00,00,00,year_exam,month_exam,day_exam,00,00,00)},1000);
+setInterval(function(){get()},10000);
+setInterval(function(){leftTimer_main(exam_year_set,6,7,09,00,00,year_exam,month_exam,day_exam,00,00,00)},1000);
 
 var internet_flag="网络已断开";
 var internet_pass_time=0;
+var exam_flash_pass_time=0;
+var Exam_flash_pass_time=0;
 var fl=1;
+var fl_exam_flash=1;
+var fl_Exam_flash=1;
 var exam_year_set=2022;
-var year_exam=2021
+var year_exam=2020
 var month_exam=6
-var day_exam=7
+var day_exam=10
 var exam_name='联考'
 var exam_set=1;
 var exam_day=0;
@@ -15,6 +19,9 @@ var exam_hour=0;
 var exam_minutes=0;
 var exam_seconds=0;
 var exam_color_set=3;
+var Exam_color_set=100;
+var exam_flash_set=1;
+var Exam_flash_set=1;
 var English_set=1;
 var English_day_set=0;
 var English_unit=0;
@@ -97,7 +104,6 @@ function get(){
     document.getElementById("edition").innerHTML=edition;
 }
 
-
 function leftTimer_main(year,month,day,hour,minute,second,year_exam,month_exam,day_exam,hour_exam,minute_exam,second_exam){ 
 	var leftTime = (new Date(year,month-1,day,hour,minute,second)) - (new Date()); 
 	var days = parseInt(leftTime / 1000 / 60 / 60 / 24 , 10); 
@@ -135,11 +141,6 @@ function checkTime(i){
 			document.getElementById("shengyufen").style.color = "red";
 			document.getElementById("shengyumiao").style.color = "red";
 		}
-	if(exam_day>exam_color_set){document.getElementById("exam_day").style.color = "white";document.getElementById("exam_hour").style.color = "white";document.getElementById("exam_minutes").style.color = "white";
-	document.getElementById("exam_seconds").style.color = "white";document.getElementById("exam_name").style.color = "white";document.getElementById("exam_date_ts").style.color = "white";}
-	if(exam_day<=exam_color_set){document.getElementById("exam_day").style.color = "red";document.getElementById("exam_hour").style.color = "red";document.getElementById("exam_minutes").style.color = "red";
-	document.getElementById("exam_seconds").style.color = "red";document.getElementById("exam_name").style.color = "red";document.getElementById("exam_date_ts").style.color = "red";}
-
 	English_unit=554-days-English_day_set;
 	if(local_time_week==1||local_time_week==6){
 		document.getElementById("English_unit").style.color = "red";
@@ -149,7 +150,6 @@ function checkTime(i){
 		document.getElementById("English_unit").style.color = "white";
 		document.getElementById("English_name").style.color = "white";
 	}
-
 var ctime=0;
 ctime=local_time_hour*3600+local_time_minutes*60+local_time_seconds*1;
 var cctime=0;
@@ -157,7 +157,6 @@ var x;
 var ss=0;
 var ff=0;
 var mm=0;
-
 function onLine(callback){
     var img = new Image();
     img.src = 'https://www.baidu.com/favicon.ico?_t=' + Date.now();
@@ -177,7 +176,12 @@ alert(data);
 }
 onLine(function(flag){
 if(flag){
-	if(fl==1){internet_pass_time=local_time_hour*3600+local_time_minutes*60+local_time_seconds*1}fl=0;cctime=ctime-internet_pass_time;ss=Math.floor(cctime/3600);x=cctime%3600;ff=Math.floor(x/60);x=x%60;mm=x;internet_flag='网络已连接'+ss+'h'+ff+'min'+mm+'s'/*+internet_pass_time+'h'+ctime+'local_time_day'+cctime+'cc'+local_time_hour+'local_time_hour'+local_time_minutes+'local_time_minutes'+local_time_seconds+'local_time_seconds'*/;if(ss>=24||ff>=60||mm>=60||ss<0||ff<0||mm<0){internet_flag='错误'}
+	if(fl==1){internet_pass_time=local_time_hour*3600+local_time_minutes*60+local_time_seconds*1}fl=0;
+	cctime=ctime-internet_pass_time;ss=Math.floor(cctime/3600);
+	x=cctime%3600;ff=Math.floor(x/60);x=x%60;mm=x;
+	internet_flag='网络已连接'+ss+'h'+ff+'min'+mm+'s';
+	/*+internet_pass_time+'h'+ctime+'local_time_day'+cctime+'cc'+local_time_hour+'local_time_hour'+local_time_minutes+'local_time_minutes'+local_time_seconds+'local_time_seconds'*/
+	if(ss>=24||ff>=60||mm>=60||ss<0||ff<0||mm<0){internet_flag='错误'}
 	if(mm<=9){
 		English_line="_____";
 	}
@@ -188,6 +192,53 @@ if(flag){
 	English_line='_______________________________';
    }
 })
+var ctime_flash=local_time_hour*3600+local_time_minutes*60+local_time_seconds*1;
+var cctime_flash=0;
+var x_flash=0;
+var ff_flash=0;
+var mm_flash=0;
+if(exam_day>exam_color_set){
+document.getElementById("exam_day").style.color = "white";document.getElementById("exam_hour").style.color = "white";document.getElementById("exam_minutes").style.color = "white";
+document.getElementById("exam_seconds").style.color = "white";document.getElementById("exam_name").style.color = "white";document.getElementById("exam_date_ts").style.color = "white";
+}
+if(exam_day<=exam_color_set){
+	document.getElementById("exam_day").style.color = "red";document.getElementById("exam_hour").style.color = "red";document.getElementById("exam_minutes").style.color = "red";
+	document.getElementById("exam_seconds").style.color = "red";document.getElementById("exam_name").style.color = "red";document.getElementById("exam_date_ts").style.color = "red";
+	if(exam_flash_set){
+		if(fl_exam_flash==1){exam_flash_pass_time=local_time_hour*3600+local_time_minutes*60+local_time_seconds*1;fl_exam_flash=0;}
+		cctime_flash=ctime_flash-exam_flash_pass_time;ss_flash=Math.floor(cctime_flash/3600);
+		x_flash=x_flash%60;mm_flash=x_flash;
+		x_flash=cctime_flash%3600;
+		ff_flash=Math.floor(x_flash/60);
+		x_flash=x_flash%60;
+		mm_flash=x_flash;
+		if(mm_flash%2==0&&mm_flash<11&&ff_flash==0&&ss_flash==0){
+		document.getElementById("exam_day").style.color = "white";document.getElementById("exam_hour").style.color = "white";document.getElementById("exam_minutes").style.color = "white";
+		document.getElementById("exam_seconds").style.color = "white";document.getElementById("exam_name").style.color = "white";document.getElementById("exam_date_ts").style.color = "white";
+		}
+	}
+}
+if(days>Exam_color_set){
+	document.getElementById("exam_year_set").style.color = "white";document.getElementById("shengyutian").style.color = "white";document.getElementById("shengyushi").style.color = "white";
+	document.getElementById("shengyufen").style.color = "white";document.getElementById("shengyumiao").style.color = "white";
+	}
+	if(days<=Exam_color_set){
+		document.getElementById("exam_year_set").style.color = "red";document.getElementById("shengyutian").style.color = "red";document.getElementById("shengyushi").style.color = "red";
+		document.getElementById("shengyufen").style.color = "red";document.getElementById("shengyumiao").style.color = "red";
+		if(Exam_flash_set){
+			if(fl_Exam_flash==1){Exam_flash_pass_time=local_time_hour*3600+local_time_minutes*60+local_time_seconds*1;fl_Exam_flash=0;}
+			cctime_flash=ctime_flash-Exam_flash_pass_time;ss_flash=Math.floor(cctime_flash/3600);
+			x_flash=x_flash%60;mm_flash=x_flash;
+			x_flash=cctime_flash%3600;
+			ff_flash=Math.floor(x_flash/60);
+			x_flash=x_flash%60;
+			mm_flash=x_flash;
+			if(mm_flash%2==0&&mm_flash<11&&ff_flash==0&&ss_flash==0){
+			document.getElementById("exam_year_set").style.color = "white";document.getElementById("shengyutian").style.color = "white";document.getElementById("shengyushi").style.color = "white";
+			document.getElementById("shengyufen").style.color = "white";document.getElementById("shengyumiao").style.color = "white";
+			}
+		}
+	}
 var exam_jl='距离';
 var exam_hy='还有';
 var exam_day_ts='天';
