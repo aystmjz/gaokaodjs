@@ -9,7 +9,7 @@ var fl=1;
 var fl_exam_flash=1;
 var fl_Exam_flash=1;
 var exam_year_set=2022;
-var year_exam=2020
+var year_exam=2021
 var month_exam=6
 var day_exam=10
 var exam_name='联考'
@@ -29,7 +29,62 @@ var English_name="Unit";
 var English_line="__";
 var kslf=0;
 var author='©1908牟家正 2835632114@qq.com';
-var edition='v2.1';
+var edition='v3.0';
+var edition_st=edition;
+
+if(typeof(localStorage.month_exam) == "undefined") {
+	localStorage.setItem("month_exam", month_exam);
+	}
+
+if(typeof(localStorage.day_exam) == "undefined") {
+		localStorage.setItem("day_exam", day_exam);
+	}
+	if(typeof(localStorage.exam_name) == "undefined") {
+		localStorage.setItem("exam_name", exam_name);
+	}
+	exam_name=localStorage.exam_name;
+	month_exam=localStorage.month_exam;
+	day_exam=localStorage.day_exam;
+function firm() {  
+	if (confirm("这是一个高考倒计时动态壁纸，如果你看到这条消息请卸载壁纸或更新参数，点击确定访问项目网站")) { 
+		alert("请确保电脑联网"); 
+		window.location.href="https://github.com/aystmjz/gaokaodjs";
+	} 
+} 
+
+function prom() { 
+
+	if (confirm("点击确定设置")) { 
+		if(localStorage.edition_set==1)
+		{
+			var message="有可用更新，是否访问项目网站？ 当前版本："+edition+" 最新版本："+localStorage.edition
+			if (confirm(message))
+			{
+				alert("请确保电脑联网"); 
+		   		 window.location.href="https://github.com/aystmjz/gaokaodjs";
+			}else{
+			localStorage.exam_name= prompt("请输入考试名称(默认联考)", ""); 
+			if(localStorage.exam_name==""||localStorage.exam_name=="null"){localStorage.exam_name='联考'}
+			localStorage.month_exam= prompt("请输入考试月份", ""); 
+			if(localStorage.month_exam==""||localStorage.month_exam=="null"){localStorage.month_exam=month_exam}
+			localStorage.day_exam= prompt("请输入考试日期", ""); 
+			if(localStorage.day_exam==""||localStorage.day_exam=="null"){localStorage.day_exam=day_exam}
+			window.location.reload(); 
+			}
+		}else{
+			localStorage.exam_name= prompt("请输入考试名称(默认联考)", ""); 
+			if(localStorage.exam_name==""||localStorage.exam_name=="null"){localStorage.exam_name='联考'}
+			localStorage.month_exam= prompt("请输入考试月份", ""); 
+			if(localStorage.month_exam==""||localStorage.month_exam=="null"){localStorage.month_exam=month_exam}
+			localStorage.day_exam= prompt("请输入考试日期", ""); 
+			if(localStorage.day_exam==""||localStorage.day_exam=="null"){localStorage.day_exam=day_exam}
+			window.location.reload(); 
+		}
+		
+
+	} 
+	
+}
 
 var $ = {
 		get: function(url, js_obj, success, datatype) {
@@ -91,17 +146,21 @@ function get(){
 		}, 
 		function(data) {
 			if(data!==''){
-				if(localStorage.edition_set!==data){
+				if(edition!==data){
 					localStorage.edition_set=1;
+					if(typeof(localStorage.edition) == "undefined") {
+						localStorage.setItem("edition", edition);
+						}
+					localStorage.edition=data;
 				}
 			}
 		},
 		'text')
 	if(localStorage.edition_set==1){
 		document.getElementById("edition").style.color = "red";
-		edition="有新版本";
+		edition_st="有新版本";
 	}
-    document.getElementById("edition").innerHTML=edition;
+    document.getElementById("edition").innerHTML=edition_st;
 }
 
 function leftTimer_main(year,month,day,hour,minute,second,year_exam,month_exam,day_exam,hour_exam,minute_exam,second_exam){ 
@@ -127,6 +186,12 @@ function checkTime(i){
 		hours = checkTime(hours); 
 		minutes = checkTime(minutes); 
 		seconds = checkTime(seconds); 
+
+	
+		if(days<0||hours<0||minutes<0||seconds<0)
+		{
+			firm();
+		}
 	var z=new Date();
 	var local_time_year=z.getFullYear();
 	var local_time_month=z.getMonth()+1;
