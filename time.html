@@ -4,16 +4,17 @@
 	<head>
 		
 		<meta charset="utf-8">
-		<script src="./files/daojishi.js"></script>
-		<link rel="stylesheet" href ="./files/yangshi.css">
+		<script src="./files/timer.js"></script>
+		<link rel="stylesheet" href ="./files/style.css">
 	</head>
 	<body>
 		
 		<script type="text/javascript">
-		var a=Math.floor(Math.random()*(31+1-1)+1);
+		var max=32;//图片总数
+		var a=Math.floor(Math.random()*(max-1)+1);
 		document.body.style.backgroundImage = "URL(photos/"+a+".jpg)";
-			var curIndex = Math.floor(Math.random()*(31+1-1)+1);
-			var timeInterval = 60*5*1000;//毫秒
+			var curIndex = Math.floor(Math.random()*(max-1)+1);
+			var timeInterval = 60*5*1000;//背景切换时间（ms）
 			var arr = new Array();//图片数组
 			arr[0] = "photos/1.jpg";
 			arr[1] = "photos/2.jpg";
@@ -98,11 +99,6 @@
 
 		
 		<span id="qqq" class="xianzai"></span>
-
-
-
-
-
 
 	</body>
 </html>
