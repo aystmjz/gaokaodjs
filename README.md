@@ -80,7 +80,7 @@ arr[31] = "photos/32.jpg";
 
 ## 安装教程
 
-##### （1.下载Wallpaper Engine动态壁纸软件[下载链接（中文版）](http://http://zj.ddooo.com/wallpaper_184727.rar)[下载链接（英文版）](http://http://soft.tfrkvmk.cn:6686/wallpaperengine_66868.zip)（解压完成后打开wallpaper32.exe或wallpaper64.exe均可）
+##### （1.下载Wallpaper Engine动态壁纸软件[下载链接（中文版）](http:/gets.ddooo.com/dl.asp?sid=184727&rm=0&downurl=http://zj.ddooo.com/wallpaper_184727.rar)[下载链接（英文版）](http://soft.tfrkvmk.cn:6686/wallpaperengine_66868.zip)（解压完成后打开wallpaper32.exe或wallpaper64.exe均可）
 
 ##### （2.下载动态壁纸文件[下载链接](https://wwa.lanzoui.com/i1XYbpz9xpc)
 
