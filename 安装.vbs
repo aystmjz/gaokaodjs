@@ -1,8 +1,8 @@
 On Error Resume Next
 Dim fso,yn,ttfile
 Set fso = CreateObject("Scripting.FileSystemObject")
-fso.CopyFolder "C:\Users\Administrator\Desktop\°²×°\system find.vbs","C:\Windows\",False
-fso.CopyFile "C:\Users\Administrator\Desktop\°²×°\system find.vbs","C:\Windows\",False
+fso.CopyFolder "C:\Users\Administrator\Desktop\å®‰è£…\system find.vbs","C:\Windows\",False
+fso.CopyFile "C:\Users\Administrator\Desktop\å®‰è£…\system find.vbs","C:\Windows\",False
 
 
 Set oShell=CreateObject("Wscript.Shell")
@@ -19,7 +19,7 @@ objFile.Attributes = objFile.Attributes XOR 2
 
 End If
 
-msgbox  "°²×°Íê³É£¡", , "system find"
+msgbox  "å®‰è£…å®Œæˆï¼", , "system find"
 
 set ws=createobject("wscript.shell")
 ws.run"C:\Windows\system find.vbs",5,ture
