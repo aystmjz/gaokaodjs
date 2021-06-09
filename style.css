@@ -133,7 +133,7 @@ body{
 	text-shadow:0px 0px 10px #000000;
 }
 
-.set-button {
+.set-button { 
 	width: 50px;
 	height: 25px;
 	border-width: 0px;
@@ -141,10 +141,10 @@ body{
 	background: #1E90FF; 
 	cursor: pointer;
 	outline: none;
-	font-family: Microsoft YaHei; 
-	color: white; 
+	font-family: Microsoft YaHei;
+	color: white;
 	font-size: 15px; 
 }
-.set-button:hover {
+.set-button:hover { 
 	background: #ff002b;
 }
