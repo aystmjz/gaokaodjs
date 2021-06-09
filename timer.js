@@ -1,6 +1,23 @@
 setInterval(function(){get()},10000);
-setInterval(function(){leftTimer_main(exam_year_set,6,7,09,00,00,year_exam,month_exam,day_exam,00,00,00)},1000);
+setInterval(function(){leftTimer_main(exam_year_set,6,7,00,00,00,year_exam,month_exam,day_exam,00,00,00)},1000);
 
+
+//重要设置
+var exam_year_set=2022;//高考年份
+var year_exam=2021//考试年份
+//次要设置
+var exam_set=1;//考试倒计时开关
+var exam_color_set=3;//醒目提醒设置（考试倒计时3天内字体变为红色）
+var Exam_color_set=100;//醒目提醒设置（高考倒计时100天内字体变为红色）
+var exam_flash_set=1;//醒目闪烁开关（考试倒计时醒目提醒的附加功能，闪5次左右）
+var Exam_flash_set=1;//醒目闪烁开关（高考倒计时醒目提醒的附加功能，闪5次左右）
+var month_exam=6//考试月份初始化
+var day_exam=7//考试日期初始化
+var English_set=0;//维词天天练开关（我们要写天天练就随便加了一个，更多设置看下面注释，200排左右，这个功能自行探索）
+var English_ts='维词天天练';//提醒名称
+var English_day_set=0;//维词天天练微调参数
+var English_name="Unit";//维词天天练提示
+//以下数据勿动
 var internet_flag="网络已断开";
 var internet_pass_time=0;
 var exam_flash_pass_time=0;
@@ -8,29 +25,19 @@ var Exam_flash_pass_time=0;
 var fl=1;
 var fl_exam_flash=1;
 var fl_Exam_flash=1;
-var exam_year_set=2022;
-var year_exam=2021
-var month_exam=6
-var day_exam=10
 var exam_name='联考'
-var exam_set=1;
 var exam_day=0;
 var exam_hour=0;
 var exam_minutes=0;
 var exam_seconds=0;
-var exam_color_set=3;
-var Exam_color_set=100;
-var exam_flash_set=1;
-var Exam_flash_set=1;
-var English_set=1;
-var English_day_set=0;
 var English_unit=0;
-var English_name="Unit";
 var English_line="__";
 var kslf=0;
 var author='©1908牟家正 2835632114@qq.com';
 var edition='v3.0';
 var edition_st=edition;
+
+
 
 if(typeof(localStorage.month_exam) == "undefined") {
 	localStorage.setItem("month_exam", month_exam);
@@ -48,7 +55,7 @@ if(typeof(localStorage.day_exam) == "undefined") {
 function firm() {  
 	if (confirm("这是一个高考倒计时动态壁纸，如果你看到这条消息请卸载壁纸或更新参数，点击确定访问项目网站")) { 
 		alert("请确保电脑联网"); 
-		window.location.href="https://github.com/aystmjz/gaokaodjs";
+		window.location.href="https://gitee.com/aystmjz/aystmjz";
 	} 
 } 
 
@@ -61,7 +68,7 @@ function prom() {
 			if (confirm(message))
 			{
 				alert("请确保电脑联网"); 
-		   		 window.location.href="https://github.com/aystmjz/gaokaodjs";
+		   		 window.location.href="https://gitee.com/aystmjz/aystmjz";
 			}else{
 			localStorage.exam_name= prompt("请输入考试名称(默认联考)", ""); 
 			if(localStorage.exam_name==""||localStorage.exam_name=="null"){localStorage.exam_name='联考'}
@@ -152,7 +159,13 @@ function get(){
 						localStorage.setItem("edition", edition);
 						}
 					localStorage.edition=data;
+				}else{
+					localStorage.edition_set=0;
 				}
+			}else
+			{
+				localStorage.edition_set=0;
+				
 			}
 		},
 		'text')
@@ -182,16 +195,20 @@ function checkTime(i){
 			 i = "0" + i;} 
 			 return i; 
 	   } 
+		
+
+	
+		if(days<0||hours<0||minutes<0||seconds<0)
+		{
+			days=0;hours=0;minutes=0;seconds=0;
+			firm();
+		}
+
 		days = checkTime(days); 
 		hours = checkTime(hours); 
 		minutes = checkTime(minutes); 
 		seconds = checkTime(seconds); 
 
-	
-		if(days<0||hours<0||minutes<0||seconds<0)
-		{
-			firm();
-		}
 	var z=new Date();
 	var local_time_year=z.getFullYear();
 	var local_time_month=z.getMonth()+1;
@@ -206,7 +223,7 @@ function checkTime(i){
 			document.getElementById("shengyufen").style.color = "red";
 			document.getElementById("shengyumiao").style.color = "red";
 		}
-	English_unit=554-days-English_day_set;
+	English_unit=554-days-English_day_set;//days前加号为倒计时，为减号为正计时，数据看情况设置
 	if(local_time_week==1||local_time_week==6){
 		document.getElementById("English_unit").style.color = "red";
 		document.getElementById("English_name").style.color = "red";
@@ -338,7 +355,7 @@ if(exam_set==0)
 	document.getElementById("exam_minutes_ts").style.opacity = "0";
 	document.getElementById("exam_seconds_ts").style.opacity = "0";
 }
-var English_ts='维词天天练';
+
 if( English_set==0){
 	English_ts='';
 	English_unit='';
